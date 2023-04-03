@@ -6,13 +6,13 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:01:28 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/01 08:32:48 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/03 07:28:34 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Polpi.h"
-
 int sigint_handler(int sig)
 {
-
+    //en attente
+    (void)sig;
+    return 0;
 }

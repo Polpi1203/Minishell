@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:44:26 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/01 08:57:07 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/03 07:29:40 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <signal.h>
 
 typedef struct s_token
 {
@@ -35,4 +36,9 @@ void execute_command(t_token *token);
 
 //builtins
 
-int builtin_cd(t_token *token); 
+int builtin_cd(t_token *token);
+int builtin_echo(t_token *token);
+int builtin_exit(t_token *token);
+int builtin_pwd(t_token *token);
+int builtin_unset(t_token *token);
+int builtin_env(t_token *token);

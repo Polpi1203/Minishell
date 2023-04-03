@@ -6,7 +6,7 @@
 #    By: polpi <polpi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 11:39:00 by polpi             #+#    #+#              #
-#    Updated: 2023/03/27 11:39:56 by polpi            ###   ########.fr        #
+#    Updated: 2023/04/03 07:33:30 by polpi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all:	libft ${NAME}
 		${CC} ${CFLAGS} -c -o $@ $<
 
 ${NAME}:	${OBJECTS}
-#		@${MAKE} -C libft all
+		@${MAKE} -C libft all
 		${CC} ${CFLAGS} -lreadline -o $@ $^ -L./libft -lft ${RD_REPLACE}
 
 libft:
