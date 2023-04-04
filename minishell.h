@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:44:26 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 13:22:33 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/04 14:38:41 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_token
 	int					i;
 	int					fdwrite;
 	int					fdread;
+	char				*path_add;
 	char				*cmd;
 	char				**arg;
 	struct s_token		*next;
@@ -47,6 +48,8 @@ int builtin_env(t_token *token);
 //external commands
 
 void	execut_extern_command(t_token *token);
+int		fork_process(t_token *token);
+void	add_cmd_to_path_and_check(t_token *token, char **path);
 
 //utils
 

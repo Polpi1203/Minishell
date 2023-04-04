@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 11:39:01 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 13:16:37 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/04 14:42:07 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int main()
         //Tokeniser l'entrée
         token.arg = ft_split(input, ' ');
         ft_strlcpy_char(token.cmd, token.arg[0], ft_strlen(token.arg[0]));
-        int i = -1;
-        while (token.arg[++i])
-            printf("token[i] -> %s\n", token.arg[i]);
+        // int i = -1;
+        // while (token.arg[++i])
+        //     printf("token[i] -> %s\n", token.arg[i]);
 
         // Obtenir les arguments
         // int i = -1;
