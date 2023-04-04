@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 08:32:12 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 12:58:06 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/04 19:41:37 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void execute_command(t_token *token)
 		builtin_env(token);
 	else if (ft_strcmp(token->cmd, "unset") == 0)
 		builtin_unset(token);
-	// } else if (ft_strcmp(token->arg[0], "ls") == 0) { // A déplacer !! 
-	//     execut_extern_command(token);
 	else
 		printf("Commande non reconnue: %s\n", token->cmd);
 }
