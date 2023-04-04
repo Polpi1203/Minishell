@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 08:52:28 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 11:09:20 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/04 11:22:29 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	execut_extern_command(t_token *token)
 		ft_strlcat(path_add, "/", sizeof(path_add));
 		ft_strlcat(path_add, token->arg[0], sizeof(path_add));
 		printf("--------path_add---------- : %s\n", path_add);
-		if
 	}
 	i = -1;
 	while (path[++i])

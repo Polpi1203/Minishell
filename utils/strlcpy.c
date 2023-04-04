@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_echo.c                                     :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 06:59:40 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 13:21:51 by polpi            ###   ########.fr       */
+/*   Created: 2023/04/04 12:45:17 by polpi             #+#    #+#             */
+/*   Updated: 2023/04/04 12:56:07 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	builtin_echo(t_token *token)
-{   
-	int i;
-	
-	i = 1;
-	while (token->arg[i])
+char	*ft_strlcpy_char(char *dst, char *src, int dstsize)
+{
+	int	i;
+
+	i = 0;
+	if (dstsize == 0)
+		return (src);
+	while (src[i] != '\0' && i <= dstsize - 1)
 	{
-		printf("%s", token->arg[i]);
-		if (token->arg[i + 1] != NULL) {
-			printf(" ");
-		}
+		dst[i] = src[i];
 		i++;
+		//write (1, "OK\n", 3);
 	}
-	printf("\n");
+	dst[i] = '\0';
+	return (dst);
 }
