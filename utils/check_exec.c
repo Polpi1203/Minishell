@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_pwd.c                                      :+:      :+:    :+:   */
+/*   check_exec.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 06:59:51 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 08:10:04 by polpi            ###   ########.fr       */
+/*   Created: 2023/04/04 11:01:45 by polpi             #+#    #+#             */
+/*   Updated: 2023/04/04 11:09:18 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int builtin_pwd(t_token *token)
+int check_exec(t_token *token)
 {
-    (void)token;
-    char cwd[1024];
-    if (getcwd(cwd, 1024) != NULL) {
-        printf("%s\n", cwd);
-    } else {
-        perror("pwd");
+    if (ft_strcmp(token->cmd, "echo") == 0 \
+        || ft_strcmp(token->cmd, "cd") == 0 \
+        || ft_strcmp(token->cmd, "env") == 0 \
+        || ft_strcmp(token->cmd, "exit") == 0 \
+        || ft_strcmp(token->cmd, "pwd") == 0 \
+        || ft_strcmp(token->cmd, "unset") == 0)
+    {
+        return 1;
     }
-    return 0;
+
 }

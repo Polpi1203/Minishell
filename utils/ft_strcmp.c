@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_pwd.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 06:59:51 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 08:10:04 by polpi            ###   ########.fr       */
+/*   Created: 2023/04/04 11:11:42 by polpi             #+#    #+#             */
+/*   Updated: 2023/04/04 11:19:11 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int builtin_pwd(t_token *token)
+int ft_strcmp(char *chain1, char *chain2)
 {
-    (void)token;
-    char cwd[1024];
-    if (getcwd(cwd, 1024) != NULL) {
-        printf("%s\n", cwd);
-    } else {
-        perror("pwd");
-    }
-    return 0;
+	int i;
+
+	i = -1;
+	while (chain1[++i])
+	{
+		if (chain1[i] != chain2[i])
+			return 1;
+	}
+	return 0;
 }
+
+// int main(int ac, char **av)
+// {
+// 	(void)ac;
+
+// 	printf("strcmp : %i\n", ft_strcmp(av[1], av[2]));
+// }

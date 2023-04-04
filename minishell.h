@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:44:26 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/03 20:49:04 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/04 11:09:37 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <signal.h>
+#include "../libft/srcs/libft.h"
 
 typedef struct s_token
 {
@@ -42,3 +43,11 @@ int builtin_exit(t_token *token);
 int builtin_pwd(t_token *token);
 int builtin_unset(t_token *token);
 int builtin_env(t_token *token);
+
+//external commands
+
+void	execut_extern_command(t_token *token);
+
+//utils
+
+int check_exec(t_token *token);
