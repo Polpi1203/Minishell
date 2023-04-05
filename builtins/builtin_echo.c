@@ -6,23 +6,22 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 06:59:40 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 13:21:51 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/05 18:09:48 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
 void	builtin_echo(t_token *token)
-{   
-	int i;
-	
+{
+	int	i;
+
 	i = 1;
 	while (token->arg[i])
 	{
 		printf("%s", token->arg[i]);
-		if (token->arg[i + 1] != NULL) {
+		if (token->arg[i + 1] != NULL)
 			printf(" ");
-		}
 		i++;
 	}
 	printf("\n");
