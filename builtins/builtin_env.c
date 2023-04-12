@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 06:59:45 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/05 18:12:55 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/12 09:19:54 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 // en attente
 
-// int builtin_env(t_token *token)
-// {
-//     (void)token;
-//     return 0;
-// }
+int builtin_env(t_token *token)
+{
+    (void)token;
+    return 0;
+}

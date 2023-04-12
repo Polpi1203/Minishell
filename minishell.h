@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:44:26 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 14:38:41 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/05 18:03:38 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void execute_command(t_token *token);
 
 //builtins
 
-int builtin_cd(t_token *token);
+void	builtin_cd(t_token *token);
 void	builtin_echo(t_token *token);
 void	builtin_exit(t_token *token);
 int builtin_pwd(t_token *token);

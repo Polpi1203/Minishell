@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 08:32:12 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 19:41:37 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/05 18:14:57 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Insérez ici les définitions des fonctions builtin_cd, builtin_pwd, builtin_echo et builtin_exit
 
-void execute_command(t_token *token) 
+void execute_command(t_token *token)
 {
 	if (ft_strcmp(token->cmd, "cd") == 0)
 		builtin_cd(token);
