@@ -6,24 +6,23 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:01:30 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/03 07:31:30 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/12 15:49:09 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	signal_init(int sig)
+void	signal_init(void)
 {
-	(void)sig;
-	return 0;
-	// struct sigaction sa;
+	struct sigaction	sig;
 
-    // // sa.sa_handler = sigint_handler;
-    // sigemptyset(&sa.sa_mask);
-	// sigaddset(&sa.sa_mask, SIGINT);
-	// sigaddset(&sa.sa_mask, SIGQUIT);
-	// if (sigaction(SIGINT, &sig, NULL) != 0)
-	// 	perror("Error with SIGINT");
-	// if (sigaction(SIGQUIT, &sig, NULL) != 0)
-	// 	perror("Error with SIGQUIT");
+	sig = (struct sigaction){0};
+	sigemptyset(&sig.sa_mask);
+	sigaddset(&sig.sa_mask, SIGINT);
+	sigaddset(&sig.sa_mask, SIGQUIT);
+	sig.sa_handler = &signal_handle;
+	if (sigaction(SIGINT, &sig, NULL) != 0)
+		perror("Error with SIGINT");
+	if (sigaction(SIGQUIT, &sig, NULL) != 0)
+		perror("Error with SIGQUIT");
 }

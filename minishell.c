@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 11:39:01 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/04 14:42:07 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/12 16:09:44 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,35 @@
 
 // A DELETE UNIQUEMENT POUR TESTER
 
-int main() 
+int	g_exit_code = 0;
+
+int	main(int ac, char **av, char **env)
 {
-    t_token token;
-    char    *cmd_tmp;
-    char    input[1024];
-    token.arg = malloc(128 * sizeof(char *));
+	struct termios	termios;
+	t_env			*envi;
+	char			*input;
 
-    while (1) {
-        printf("minishell> ");
-        if (fgets(input, sizeof(input), stdin) == NULL) {
-            break;
-        }
-        token.cmd = malloc(sizeof(char) * ft_strlen(input));
-        cmd_tmp = malloc(sizeof(char) * ft_strlen(input));
-        // Supprimer le caractère de nouvelle ligne
-        input[strcspn(input, "\n")] = 0;
-        //ft_strlcpy_char(cmd_tmp, input, ft_strlen(input));
-        
-        //Tokeniser l'entrée
-        token.arg = ft_split(input, ' ');
-        ft_strlcpy_char(token.cmd, token.arg[0], ft_strlen(token.arg[0]));
-        // int i = -1;
-        // while (token.arg[++i])
-        //     printf("token[i] -> %s\n", token.arg[i]);
-
-        // Obtenir les arguments
-        // int i = -1;
-        // while (tmp_cmd != NULL) {
-        //     token.arg[++i] = tmp_cmd;
-        //     tmp_cmd = strtok(NULL, " ");
-        // }
-
-        //printf("token.arg[0] -> %s\n", token.arg[0]);
-
-        //execute cmd
-        if (check_exec(&token) == 1)
-            execute_command(&token);
-        else
-            execut_extern_command(&token);
-    }
-    free (token.arg);
-    free (token.cmd);
-    free (cmd_tmp);
-    return 0;
+	(void)ac;
+	(void)av;
+	envi = malloc(sizeof(t_env));
+	ft_memset(envi, 0, sizeof(t_env));
+	if ((tcgetattr(STDIN_FILENO, &termios)) == -1)
+		exit(EXIT_FAILURE);
+	termios.c_lflag &= ~(ECHOCTL);
+	if ((tcsetattr(STDIN_FILENO, TCSANOW, &termios)) == -1)
+		exit(EXIT_FAILURE);
+	input = "start";
+	init_env(&envi, env);
+	signal_init();
+	while (input != NULL)
+	{
+		input = readline("\e[1;36mMinishell > \e[0m");
+		if ((input && input[0] == '\0') || input == NULL)
+			continue ;
+		parser(input, envi);
+		add_history(input);
+	}
+	free(input);
+	free_env(&envi);
+	return (0);
 }

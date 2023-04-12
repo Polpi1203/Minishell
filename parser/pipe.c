@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal_handle.c                                    :+:      :+:    :+:   */
+/*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fabien <fabien@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 07:01:28 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/12 15:45:51 by polpi            ###   ########.fr       */
+/*   Created: 2023/04/03 19:46:58 by fabien            #+#    #+#             */
+/*   Updated: 2023/04/03 19:53:11 by fabien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	signal_handle(int sig)
-{
-	if (sig == SIGINT)
-	{
-		printf("\n");
-		rl_replace_line("", 0);
-		rl_on_new_line();
-		rl_redisplay();
-		g_exit_code = 128 + SIGINT;
-	}
-	if (sig == SIGQUIT)
-	{
-		rl_on_new_line();
-		rl_redisplay();
-		g_exit_code = 128 + SIGQUIT;
-	}
-}
+// void	get_pipe(t_token *token)
+// {
+
+// }
