@@ -23,6 +23,10 @@ void	parser(char	*input, t_env *envi)
 		if (input[i] == '|')
 			i++;
 	}
+	printf("head cmd : %s\n", head->cmd);
+	if (check_exec(head) == 1)
+		execute_command(head);
+	execut_extern_command(head);
 	// Il faut que je remplace son execution par la mienne !!!!!!!!!!! 
 	// replace_usd(head);
 	// execution(head);

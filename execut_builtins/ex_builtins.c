@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 08:32:12 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/05 18:14:57 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/12 18:27:12 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void execute_command(t_token *token)
 {
+	printf("token->cmd : %s\n", token->cmd);
 	if (ft_strcmp(token->cmd, "cd") == 0)
 		builtin_cd(token);
 	else if (ft_strcmp(token->cmd, "pwd") == 0)

@@ -6,7 +6,7 @@
 /*   By: polpi <polpi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 06:59:40 by polpi             #+#    #+#             */
-/*   Updated: 2023/04/05 18:09:48 by polpi            ###   ########.fr       */
+/*   Updated: 2023/04/12 18:31:07 by polpi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	builtin_echo(t_token *token)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (token->arg[i])
 	{
 		printf("%s", token->arg[i]);
